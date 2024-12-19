@@ -14,10 +14,10 @@ public class RevenueMapper extends Mapper<Object, Text, DoubleWritable, Text> {
 
         if (fields.length >= 3) {
             try {
-                double revenue = Double.parseDouble(fields[1]); // Предполагаем, что выручка - второй элемент
+                double revenue = Double.parseDouble(fields[1]);
                 context.write(new DoubleWritable(revenue), value);
             } catch (NumberFormatException e) {
-                // Логирование ошибок преобразования
+                e.printStackTrace();
             }
         }
     }
